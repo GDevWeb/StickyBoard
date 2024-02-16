@@ -1,0 +1,48 @@
+form#postItForm{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .inputGroup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 50%;
+    margin: auto;
+
+    label {
+      width: 100%;
+      text-transform: uppercase;
+      font-weight: bolder;
+      text-align: center;
+    }
+
+    input {
+      width: 60%;
+      border: none;
+      border-radius: 1rem;
+      padding: 0.55rem;
+    }
+
+    button {
+      min-width: 12.5rem;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 1rem;
+    }
+  }
+}
+
+#board{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+
+}
