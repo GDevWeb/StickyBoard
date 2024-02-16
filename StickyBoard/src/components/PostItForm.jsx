@@ -48,15 +48,28 @@ function PostItForm() {
   };
 
   /**
-   * 
+   *
    * @param {*} postItId suppression du postIt par l'id
    */
-  
-const handleDelete = (postItId) => {
-  setPostItList(postItList.filter(postIt => postIt.id !== postItId))
-}  
+
+  const handleDelete = (postItId) => {
+    setPostItList(postItList.filter((postIt) => postIt.id !== postItId));
+  };
   return (
-    <>
+    <div id="mainContent">
+      <div id="board">
+        {postItList.map((postIt) => {
+          return (
+            <PostIt
+              key={postIt.id}
+              handleDelete={() => handleDelete(postIt.id)}
+              text={postIt.text}
+              style={{ backgroundColor: postIt.color }}
+            />
+          );
+        })}
+      </div>
+
       <form id="postItForm" onSubmit={handleSubmit}>
         <div className="inputGroup">
           <label htmlFor="inputPostIt">Texte du post-it</label>
@@ -67,23 +80,10 @@ const handleDelete = (postItId) => {
             value={inputValue}
             onChange={handleChange}
           />
-          <button>Créer</button>
+          <button id="addPostIt">Créer</button>
         </div>
       </form>
-
-      <div id="board">
-        {postItList.map((postIt) => {
-          return (
-            <PostIt
-            key={postIt.id}
-            handleDelete={() => handleDelete(postIt.id)}
-            text={postIt.text}
-            style={{backgroundColor : postIt.color}}
-            />
-          );
-        })}
-      </div>
-    </>
+    </div>
   );
 }
 
